@@ -6,7 +6,7 @@ namespace ExaminationManagementSystem.Enums
 {
     internal enum QuestionType
     {
-        TrueFalse,
+        TrueFalse =1,
         ChooseOne,
         MultiChoice
     }

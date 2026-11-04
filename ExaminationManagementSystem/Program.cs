@@ -1,4 +1,6 @@
-﻿namespace ExaminationManagementSystem;
+﻿using ExaminationManagementSystem.Enums;
+
+namespace ExaminationManagementSystem;
 internal class Program
 {
     static void Main(string[] args)
