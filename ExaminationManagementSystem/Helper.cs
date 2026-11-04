@@ -6,8 +6,7 @@ namespace ExaminationManagementSystem
 {
     public static class Helper
     {
-        //TODO : make it generic عشان الدرجات برضو ممكن تكون ارقام كسرية
-        public static int ValidateInputNumber(string  message)//in general , then i will check(1:3 => level) and (positive for mark) in Question...etc :)
+        public static int ValidateInputNumber(string  message)//in general , then i will check(1:3 => level)  in Question :)
         {
             int num;
             do
@@ -19,5 +18,20 @@ namespace ExaminationManagementSystem
             } while (true);
             return num;
         }
+        //-------------------------
+        public static double ValidateDoubleNumber(string message)//in general, i will check (positive for mark) in Question :)
+        {
+            double num;
+            do
+            {
+                Console.Write(message);
+                if (double.TryParse(Console.ReadLine(), out num))
+                    break;
+                Console.WriteLine("invalid input, try again :)");
+            } while (true);
+            return num;
+        }
+        //-------------------------
+
     }
 }

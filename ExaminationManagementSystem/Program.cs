@@ -1,4 +1,5 @@
 ﻿using ExaminationManagementSystem.Enums;
+using ExaminationManagementSystem.Questions;
 
 namespace ExaminationManagementSystem;
 internal class Program
@@ -24,6 +25,8 @@ internal class Program
         //} 
         #endregion
 
+        Question question = new Question();
+        question.DisplayQuestion();
 
     }
     //=======================================================
