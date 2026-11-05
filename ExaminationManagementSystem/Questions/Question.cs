@@ -2,12 +2,16 @@
 
 namespace ExaminationManagementSystem.Questions
 {
-    internal class Question
+    internal abstract class Question
     {
         public int Id { get; set; }//TODO: Guid?
         public string Header { get; set; }
         public double Mark { get; set; }
-        public QuestionType Type { get; set; }//TODO: must be abstract to determine hte type at first?
+        public abstract QuestionType Type
+        {
+            get;
+        }//TODO done: must be abstract to determine hte type at first?
+         //and i removed set -> عشان محدش يعدل فيها من بره
         public Level Level { get; set; }
         public Answer Answer { get; set; }
         //-----------------------
@@ -90,5 +94,6 @@ namespace ExaminationManagementSystem.Questions
             #endregion
         }
         
+        //-----------------------
     }
 }
