@@ -25,7 +25,7 @@ namespace ExaminationManagementSystem.Questions
             this.Answer.Choices.Add("False");
             //-----
             int correctAnswerIndex = Helper.ValidateNumberInRange("Enter Correct Answer (1. True | 2. False) : ", 1, 2);
-            this.Answer.CorrectChoices.Add(correctAnswerIndex);
+            this.Answer.CorrectChoicesIndexes.Add(correctAnswerIndex);
 
 
 

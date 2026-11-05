@@ -13,7 +13,7 @@ namespace ExaminationManagementSystem.Questions
         }//TODO done: must be abstract to determine hte type at first?
          //and i removed set -> عشان محدش يعدل فيها من بره
         public Level Level { get; set; }
-        public Answer Answer { get; set; }
+        public Answer Answer { get; set; } = new Answer(); // must init with creating an obj to avoid null exception when u need to access Answer class :)
         //-----------------------
         public virtual void DisplayQuestion()
         {

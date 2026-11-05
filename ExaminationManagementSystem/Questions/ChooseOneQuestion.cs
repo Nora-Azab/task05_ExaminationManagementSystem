@@ -13,7 +13,7 @@ namespace ExaminationManagementSystem.Questions
             base.DisplayQuestion();
             this.Answer.EnterChoices();
             int correctAnswerIndex = Helper.ValidateNumberInRange("Enter Correct Choice Number [1-4] : ", 1,4);
-            this.Answer.CorrectChoices.Add(correctAnswerIndex);//one choice only is correct :)
+            this.Answer.CorrectChoicesIndexes.Add(correctAnswerIndex);//one choice only is correct :)
         }
     }
 }
