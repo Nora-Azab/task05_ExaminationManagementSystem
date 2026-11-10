@@ -50,8 +50,6 @@ namespace ExaminationManagementSystem.Modes
             this.Student.Exam.Questions = questions;
             //--------------------------
             //4- display exam (display exam questions + take student answers)
-            Console.WriteLine($"let's start your {Student.Exam.Type} exam. you have ({questions.Count}) question :)");
-            Console.WriteLine("========================================");
             Student.Exam.DisplayExam();//polymorphism happened:)
             //--------------------------
             //5- check answers

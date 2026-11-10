@@ -13,6 +13,10 @@ namespace ExaminationManagementSystem.Exams
         {
             base.DisplayExam();
             DisplayExamQuestions(this.Questions.Count/2);//questionsCount = 1/2
+            Console.WriteLine("=====================================");
+            this.Stopwatch.Stop();
+            Console.WriteLine($"Time token: {this.Stopwatch.Elapsed.Hours:D2}:{this.Stopwatch.Elapsed.Minutes:D2}:{this.Stopwatch.Elapsed.Seconds:D2}");
+
         }
     }
 }

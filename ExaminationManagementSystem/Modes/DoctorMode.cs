@@ -16,6 +16,8 @@ namespace ExaminationManagementSystem.Modes
 
         public DoctorMode()
         {
+            Console.WriteLine("=======================================");
+            Console.WriteLine("Hi Doctor :)");
              QuestionsCount = Helper.ValidateInputNumber("How many questions do you want to add? ");
              Questions = new List<Question>(QuestionsCount);//capacity = QuestionsCount //حددتها من الاول عشان ميحصلش resize
         }

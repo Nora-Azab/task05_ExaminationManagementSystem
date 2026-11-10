@@ -1,5 +1,5 @@
 ﻿using ExaminationManagementSystem.Enums;
-//TODO: حاسة مكنش في داعي للabstract type
+//done TODO: حاسة مكنش في داعي للabstract type     => طلع مهم 
 namespace ExaminationManagementSystem.Questions
 {
     internal abstract class Question

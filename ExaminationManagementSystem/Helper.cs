@@ -60,7 +60,7 @@ namespace ExaminationManagementSystem
             return num;
         }
         //-------------------------
-        public static List<int> ValidateAndGetMultiChoices(string? input)
+        public static List<int> ValidateAndGetMultiChoices(string? input,int min=1,int max=4)
         {
             int num;
             bool converted;
@@ -72,7 +72,7 @@ namespace ExaminationManagementSystem
                 return result;//which is empty
             foreach (var item in inputs)
             {
-                converted = int.TryParse(item, out num) && num > 0 && num <= 4;// 0 => not allowed (1.true..1.choice one ....etc) i will start numbering the choices from 1 :)
+                converted = int.TryParse(item, out num) && num >=min && num <= max;// 0 => not allowed (1.true..1.choice one ....etc) i will start numbering the choices from 1 :)
                 if (converted)
                     result.Add(num);
                 else
