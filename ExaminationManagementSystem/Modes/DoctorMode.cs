@@ -16,15 +16,20 @@ namespace ExaminationManagementSystem.Modes
 
         public DoctorMode()
         {
-            Console.WriteLine("=======================================");
-            Console.WriteLine("Hi Doctor :)");
-             QuestionsCount = Helper.ValidateInputNumber("How many questions do you want to add? ");
-             Questions = new List<Question>(QuestionsCount);//capacity = QuestionsCount //حددتها من الاول عشان ميحصلش resize
+            /// wrong:
+            /// Questions = new List<Question>(QuestionsCount);//capacity = QuestionsCount //حددتها من الاول عشان ميحصلش resize
+            /// 
+
+             Questions = new List<Question>();//to allow doctor add many times to one list "Questions" :) في حالة كل شوية بيختار المود مرة جديدة
         }
 
         //--------------------------
         public void Start()
         {
+            //نقلتهم هنا عشان لو الدكتور أختار المود أكتر من مرة
+            Console.WriteLine("=======================================");
+            Console.WriteLine("Hi Doctor :)");
+            QuestionsCount = Helper.ValidateInputNumber("How many questions do you want to add? ");
             QuestionType questionType;
             //----------------------------------------------------
             for (int i = 0; i < QuestionsCount; i++)
@@ -66,7 +71,7 @@ namespace ExaminationManagementSystem.Modes
                 /// then in [Run Time] => will override the "DisplayQuestion" of Question to "DisplayQuestion" of the type which user is chose :) [child class from question] :)
                 
             }
-                Console.WriteLine("merci ya doctor :)");
+           Console.WriteLine($"merci ya doctor, now become {this.Questions.Count} Question :)");
         }
         //--------------------------
 

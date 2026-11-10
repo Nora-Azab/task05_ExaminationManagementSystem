@@ -38,16 +38,25 @@ internal class Program
                 case 1:
                     {
                         Console.Clear();
-                        doctorMode = new DoctorMode();
+                        if(doctorMode is null)
+                            doctorMode = new DoctorMode();
+                        /// why create instance from "DoctorMode" this time only?
+                        /// i need when the doctor choose many times to add questions
+                        /// -> i need to add in one list
+                        /// don't need to make a new obj from "DoctorMode" and each time -> "Questions" list become empty :)
+                       
                         doctorMode.Start();
                         break;
                     }
                 case 2:
                     {
-                        if(doctorMode is null || doctorMode.Questions.Count==0)
+                        if(doctorMode is null || doctorMode.Questions.Count == 0)
+                        {
                             Console.WriteLine("No Questions Yet for exam :(");
+                            break;
+                        }
 
-                        StudentMode studentMode = new StudentMode();
+                        StudentMode studentMode = new StudentMode();//new StudentMode because it's a new exam with new result:)
                         studentMode.Start(doctorMode.Questions);
                         break;
                     }
