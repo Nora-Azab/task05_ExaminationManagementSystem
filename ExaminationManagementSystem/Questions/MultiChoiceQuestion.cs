@@ -9,9 +9,9 @@ namespace ExaminationManagementSystem.Questions
     {
         public override QuestionType Type => QuestionType.MultiChoice;
 
-        public override void DisplayQuestion()
+        public override void EnterQuestion()
         {
-            base.DisplayQuestion();
+            base.EnterQuestion();
             this.Answer.EnterChoices();
             //----------------------
             string? input;
@@ -25,11 +25,12 @@ namespace ExaminationManagementSystem.Questions
                 Console.WriteLine("invalid input for the choices, try again:)");
 
             } while (true);
+            Console.WriteLine("======================================");
             //foreach(var index in  this.Answer.CorrectChoicesIndexes)
             //{
             //    Console.Write($"{Answer.Choices[index]}  ");
             //}
-            
+
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using ExaminationManagementSystem.Enums;
-
+//TODO: حاسة مكنش في داعي للabstract type
 namespace ExaminationManagementSystem.Questions
 {
     internal abstract class Question
@@ -15,9 +15,9 @@ namespace ExaminationManagementSystem.Questions
         public Level Level { get; set; }
         public Answer Answer { get; set; } = new Answer(); // must init with creating an obj to avoid null exception when u need to access Answer class :)
         //-----------------------
-        public virtual void DisplayQuestion()
+        public virtual void EnterQuestion()
         {
-            
+
             #region level:
 
             #region native code :)
@@ -36,33 +36,7 @@ namespace ExaminationManagementSystem.Questions
             #endregion
 
             #region use Enum.TryParse()
-            Level l;
-            do
-            {
-                Console.Write("Enter The Level 'words | numbers' as u like (1. easy | 2. medium | 3. hard) : ");
-                //if (Enum.TryParse(Console.ReadLine(), out Level l))//"this.Level" instead of "l"   wrong -> it's not "out"
-                /// 1 | easy       -> l = easy
-                /// 2 | medium     -> l = medium
-                /// 3 | hard       -> l = hard
-                /// 4              -> l = 4       => which is wrong :(
-                /// Easy           -> invalid     => case sensitive
-                ///
-
-                //if (Enum.TryParse(Console.ReadLine(),ignoreCase: true, out Level l))
-                /// EaSy -> l=easy
-                /// easy -> l=easy
-                /// 
-
-                //عايزة احل مشكلة انه بيقبل ارقام مش متمثلة في الاينم اصلا
-                if (Enum.TryParse(Console.ReadLine(), ignoreCase: true, out l) && Enum.IsDefined(l))//وطبعا لازم الترتيب ده عشان القيمة ال طلعت في الأوت الاول 
-                {
-                    //Console.WriteLine($"level = {l}");
-                    break;
-                }
-                Console.WriteLine("invalid level :(");
-
-            } while (true);
-            this.Level = l;
+            this.Level = Helper.ValidateAndGetEnum<Level>("Enter The Question Level 'words | numbers' as u like (1. easy | 2. medium | 3. hard) : ");
 
             #endregion 
 
@@ -94,6 +68,21 @@ namespace ExaminationManagementSystem.Questions
             #endregion
         }
         
+        //-----------------------
+        public static List<Question> Filter(List<Question> questions , Func<Question , bool> filter)// general filter : (type | level | .....)
+        ///delegate                                (q)        ->   q.Level=="easy"   |  q.Type == "ChooseOne" ...etc
+        ///delegate                                (Question) ->   bool
+        ///Predigate<Q , bool> | Func<Q , bool>    (Question) ->   bool
+        ///if( filter(questions[i] )   -> invoking for the delegate which point to the method the user will pass (ex :  (q)=> q.Level=="easy" ) وهكذا:)
+        ///
+        {
+            List<Question> filteredQuestions = new List<Question>();
+            for (int i = 0; i < questions.Count; i++)
+                if (filter(questions[i]))//invoking :)
+                    filteredQuestions.Add(questions[i]);
+
+            return filteredQuestions;
+        }
         //-----------------------
     }
 }

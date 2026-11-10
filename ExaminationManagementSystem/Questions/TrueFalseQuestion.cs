@@ -16,9 +16,9 @@ namespace ExaminationManagementSystem.Questions
 
         }
 
-        public override void DisplayQuestion()
+        public override void EnterQuestion()
         {
-            base.DisplayQuestion();
+            base.EnterQuestion();
             //-----
             //EnterChoices
             this.Answer.Choices.Add("True");
@@ -26,6 +26,7 @@ namespace ExaminationManagementSystem.Questions
             //-----
             int correctAnswerIndex = Helper.ValidateNumberInRange("Enter Correct Answer (1. True | 2. False) : ", 1, 2);
             this.Answer.CorrectChoicesIndexes.Add(correctAnswerIndex);
+            Console.WriteLine("======================================");
 
 
 
